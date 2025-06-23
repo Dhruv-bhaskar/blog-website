@@ -106,7 +106,7 @@ router.get('/me', authMiddleware, async (req,res)=>{
 router.get('/logout', (req,res)=>{
     res.clearCookie('token', {
         httpOnly: true,
-        sameSite: 'Lax',
+        sameSite: 'none',
         secure: true
     })
 
