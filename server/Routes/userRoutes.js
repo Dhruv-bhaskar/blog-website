@@ -61,8 +61,8 @@ router.post('/login', async (req,res)=>{
        const token = createToken(user._id)
        res.cookie('token', token, {
         httpOnly: true,
-        secure: false,
-        sameSite: 'Lax'
+        secure: true,
+        sameSite: 'None'
        })
 
        console.log(token);
@@ -106,7 +106,7 @@ router.get('/me', authMiddleware, async (req,res)=>{
 router.get('/logout', (req,res)=>{
     res.clearCookie('token', {
         httpOnly: true,
-        sameSite: 'none',
+        sameSite: 'None',
         secure: true
     })
 
