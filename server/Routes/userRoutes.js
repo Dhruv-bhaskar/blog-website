@@ -65,8 +65,6 @@ router.post('/login', async (req,res)=>{
         sameSite: 'None'
        })
 
-       console.log(token);
-
        res.status(201).json({
         message: 'login succesfully',
         user:{
