@@ -107,7 +107,7 @@ router.get('/logout', (req,res)=>{
     res.clearCookie('token', {
         httpOnly: true,
         sameSite: 'Lax',
-        secure: false
+        secure: true
     })
 
     res.status(200).json({
