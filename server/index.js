@@ -10,7 +10,7 @@ env.config()
 const app = express()
 
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: [process.env.CLIENT_URL, 'http://localhost:5173'],
     credentials: true
 }))
 
@@ -21,7 +21,7 @@ app.use(express.json())
 app.use('/user', userRouter)
 app.use('/post', blogRoutes)
 
-mongoose.connect(process.env.MONGO_URI).then(()=>{
+mongoose.connect(process.env.MONGO_URL).then(()=>{
     console.log('connected to db');
 }).catch(err => console.log(err));
 
