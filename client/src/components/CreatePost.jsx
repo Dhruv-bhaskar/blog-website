@@ -1,0 +1,106 @@
+import React, { useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
+import LoggedOut from "./LoggedOut";
+
+const CreatePost = () => {
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false);
+  const navigate = useNavigate();
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    try {
+      const res = await axios.post(
+        `${import.meta.env.VITE_API_URL}/post`,
+        { title, content },
+        { withCredentials: true }
+      );
+      toast.success("Blog created");
+      console.log(res);
+      navigate("/allpost");
+    } catch (err) {
+      if (err.response?.status == 401) {
+        alert(err.response.data.message);
+      } else {
+        alert("Blog creation failed");
+      }
+      console.error(err);
+    }
+  }
+
+  const handleClick = () => {
+    setShowDropdown((prev) => !prev);
+  };
+
+  return (
+    <div className="flex flex-col items-center bg-gray-100 h-screen w-screen p-1 px-4">
+      <nav className="rounded-xl w-full h-20 flex justify-between items-center bg-zinc-400 px-4">
+        <div>
+          <Link to={"/loggedin"}>
+            <img
+              className="h-16 rounded-full"
+              src="/weblogo.png"
+              alt="blog-logo"
+            />
+          </Link>
+        </div>
+        <div className="flex items-center justify-between w-45">
+          <Link to={"/allpost"}>
+            <button className="border-zinc-600 border-2 rounded-3xl p-2 cursor-pointer text-black bg-zinc-100 hover:bg-zinc-600/50 hover:border-white hover:text-white transition-colors">
+              Dashboard
+            </button>
+          </Link>
+          <div className="relative">
+            <img
+              onClick={handleClick}
+              className="h-16 rounded-full"
+              src="/user.png"
+              alt="user"
+            />
+
+            {showDropdown && (
+              <div className="text-center flex justify-center absolute right-0 top-full mt-2 w-[10rem] bg-white/30 rounded-2xl shadow-md z-50">
+                <LoggedOut />
+              </div>
+            )}
+          </div>
+        </div>
+      </nav>
+
+      <form
+        className="w-full max-w-7xl mx-auto p-4 flex flex-col items-center gap-8 mt-[1rem] bg-zinc-100"
+        onSubmit={handleSubmit}
+      >
+        <p className="text-2xl font-semibold text-[#754444]">Create Blog</p>
+        <input
+          className="border-[#754444] bg-[#f7eaea5f] border-2 rounded-2xl p-2 w-full placeholder-slate-700 text-[#421b1b]"
+          type="text"
+          placeholder="enter title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+        />
+        <textarea
+          className="border-[#754444] border-2 bg-[#f7eaea5f] rounded-2xl p-2 w-full placeholder-slate-700 text-[#421b1b]"
+          rows={15}
+          value={content}
+          placeholder="write content"
+          onChange={(e) => setContent(e.target.value)}
+          required
+        ></textarea>
+        <button
+          className="cursor-pointer border-[#754444] border-2 font-semibold text-sm text-[#2c0f0f] rounded-3xl w-28 p-2 hover:bg-[#754444] hover:text-white transition-colors transition-"
+          type="submit"
+        >
+          Create Blog
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default CreatePost;
