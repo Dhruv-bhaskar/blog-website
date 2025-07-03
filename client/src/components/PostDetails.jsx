@@ -8,7 +8,6 @@ import LoggedOut from "./LoggedOut";
 const PostDetails = () => {
   const [post, setPost] = useState("null");
   const [showDropdown, setShowDropdown] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -17,7 +16,6 @@ const PostDetails = () => {
       .get(`${import.meta.env.VITE_API_URL}/post/${id}`)
       .then((res) => setPost(res.data))
       .catch((err) => console.log(err))
-      .finally(setIsLoading(false))
   }, [id]);
 
   async function handleDelete() {
@@ -40,7 +38,19 @@ const PostDetails = () => {
     setShowDropdown((prev) => !prev);
   };
 
-  if (!post) return <div>LOADING...</div>;
+  if (!post)
+    return (
+      <div className="flex flex-col gap-2 w-full h-screen justify-center items-center">
+        <img
+          src="/weblogo.png"
+          alt="logo"
+          className="h-16 rounded-full animate-bounce"
+        />
+        <p className="text-xl text-gray-600 text-center dark:text-white">
+          Loading..
+        </p>
+      </div>
+    );
 
   return (
     <div className="flex flex-col items-center min-h-screen w-full p-2 bg-stone-50 dark:bg-zinc-900 transition-colors duration-300">
@@ -60,7 +70,7 @@ const PostDetails = () => {
               Dashboard
             </button>
           </Link>
-           <div className="relative"> 
+          <div className="relative">
             <img
               onClick={handleClick}
               className="h-16 rounded-full"
@@ -77,19 +87,7 @@ const PostDetails = () => {
         </div>
       </nav>
 
-      {isLoading ? (
-        <div className="flex flex-col gap-2 w-full justify-center items-center col-span-full mt-[8rem]">
-            <img
-              src="/weblogo.png"
-              alt="logo"
-              className="h-16 rounded-full animate-bounce"
-            />
-            <p className="text-xl text-gray-600 text-center dark:text-white">
-              Loading..
-            </p>
-          </div>
-      ):(
-        <div className="flex flex-col gap-2 w-full">
+      <div className="flex flex-col gap-2 w-full">
         <div className="pl-4 pr-4 flex items-center justify-between h-[7rem] w-full mt-8">
           <h1 className="ml-4 border-b rounded-md drop-shadow-sm drop-shadow-black p-4 text-4xl dark:text-white">
             {post.title}
@@ -114,7 +112,6 @@ const PostDetails = () => {
           <p className="whitespace-pre-wrap">{post.content}</p>
         </div>
       </div>
-      )}
     </div>
   );
 };

@@ -10,7 +10,6 @@ const EditPost = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -22,7 +21,6 @@ const EditPost = () => {
         setContent(res.data.content);
       })
       .catch((err) => console.log(err))
-      .finally(setIsLoading(false))
   }, [id]);
 
   async function handleSubmit(e) {
@@ -47,7 +45,7 @@ const EditPost = () => {
   const handleClick = () => {
     setShowDropdown((prev) => !prev);
   };
-
+  
   return (
     <div className="flex flex-col items-center min-h-screen w-full p-2 bg-blue-50 dark:bg-zinc-900">
       <nav className="rounded-xl w-full h-20 flex justify-between items-center bg-zinc-400 pl-2 pr-2 mr-2 dark:bg-zinc-800">
@@ -66,7 +64,7 @@ const EditPost = () => {
               Dashboard
             </button>
           </Link>
-           <div className="relative"> 
+          <div className="relative">
             <img
               onClick={handleClick}
               className="h-16 rounded-full"
@@ -87,19 +85,7 @@ const EditPost = () => {
         Edit Blog
       </h2>
 
-      {isLoading ? (
-        <div className="flex flex-col gap-2 w-full justify-center items-center col-span-full mt-[8rem]">
-            <img
-              src="/weblogo.png"
-              alt="logo"
-              className="h-16 rounded-full animate-bounce"
-            />
-            <p className="text-xl text-gray-600 text-center dark:text-white">
-              Loading..
-            </p>
-          </div>
-      ):(
-        <form
+      <form
         className="flex flex-col items-center gap-6 mt-8 p-3 w-full max-w-5xl"
         onSubmit={handleSubmit}
       >
@@ -123,7 +109,6 @@ const EditPost = () => {
           Update
         </button>
       </form>
-      )}
     </div>
   );
 };
