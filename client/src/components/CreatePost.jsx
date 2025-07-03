@@ -37,8 +37,8 @@ const CreatePost = () => {
   };
 
   return (
-    <div className="flex flex-col items-center bg-gray-100 h-screen w-screen p-1 px-4">
-      <nav className="rounded-xl w-full h-20 flex justify-between items-center bg-zinc-400 px-4">
+    <div className="flex flex-col items-center bg-gray-100 h-screen w-screen p-1 px-4 dark:bg-zinc-900">
+      <nav className="rounded-xl w-full h-20 flex justify-between items-center bg-zinc-400 px-4 dark:bg-zinc-800">
         <div>
           <Link to={"/loggedin"}>
             <img
@@ -50,7 +50,7 @@ const CreatePost = () => {
         </div>
         <div className="flex items-center justify-between w-45">
           <Link to={"/allpost"}>
-            <button className="border-zinc-600 border-2 rounded-3xl p-2 cursor-pointer text-black bg-zinc-100 hover:bg-zinc-600/50 hover:border-white hover:text-white transition-colors">
+            <button className="border-zinc-600 border-2 rounded-3xl p-2 cursor-pointer text-black bg-zinc-100 hover:bg-zinc-600/50 hover:border-white hover:text-white transition-colors dark:bg-zinc-700 dark:text-white dark:border-zinc-500 dark:hover:bg-zinc-600">
               Dashboard
             </button>
           </Link>
@@ -63,7 +63,7 @@ const CreatePost = () => {
             />
 
             {showDropdown && (
-              <div className="text-center flex justify-center absolute right-0 top-full mt-2 w-[10rem] bg-white/30 rounded-2xl shadow-md z-50">
+              <div className="text-center flex justify-center absolute right-0 top-full mt-2 w-[10rem] bg-white/30 rounded-2xl shadow-md z-50 dark:bg-zinc-700">
                 <LoggedOut />
               </div>
             )}
@@ -72,12 +72,12 @@ const CreatePost = () => {
       </nav>
 
       <form
-        className="w-full max-w-7xl mx-auto p-4 flex flex-col items-center gap-8 mt-[1rem] bg-zinc-100"
+        className="w-full max-w-7xl mx-auto p-4 flex flex-col items-center gap-8 mt-[1rem]"
         onSubmit={handleSubmit}
       >
-        <p className="text-2xl font-semibold text-[#754444]">Create Blog</p>
+        <p className="text-2xl font-semibold text-[#754444] dark:text-[#f4bcbc]">Create Blog</p>
         <input
-          className="border-[#754444] bg-[#f7eaea5f] border-2 rounded-2xl p-2 w-full placeholder-slate-700 text-[#421b1b]"
+          className="border-[#754444] bg-[#f7eaea5f] border-2 rounded-2xl p-2 w-full placeholder-slate-700 text-[#421b1b] dark:placeholder-gray-400 dark:text-white"
           type="text"
           placeholder="enter title"
           value={title}
@@ -85,7 +85,7 @@ const CreatePost = () => {
           required
         />
         <textarea
-          className="border-[#754444] border-2 bg-[#f7eaea5f] rounded-2xl p-2 w-full placeholder-slate-700 text-[#421b1b]"
+          className="border-[#754444] border-2 bg-[#f7eaea5f] rounded-2xl p-2 w-full placeholder-slate-700 text-[#421b1b] dark:bg-[#3c3c3c] dark:placeholder-gray-400 dark:text-white"
           rows={15}
           value={content}
           placeholder="write content"
@@ -93,7 +93,7 @@ const CreatePost = () => {
           required
         ></textarea>
         <button
-          className="cursor-pointer border-[#754444] border-2 font-semibold text-sm text-[#2c0f0f] rounded-3xl w-28 p-2 hover:bg-[#754444] hover:text-white transition-colors transition-"
+          className="cursor-pointer border-[#754444] border-2 font-semibold text-sm text-[#2c0f0f] rounded-3xl w-28 p-2 hover:bg-[#754444] hover:text-white transition-colors dark:border-[#f4bcbc] dark:text-white dark:hover:bg-[#f4bcbc] dark:hover:text-black"
           type="submit"
         >
           Create Blog

@@ -34,51 +34,37 @@ const Login = () => {
   }
 
   return (
-    <div className="border flex flex-row justify-around items-center w-screen h-screen bg-orange-200">
+    <div className="min-h-screen flex flex-col justify-center items-center gap-4 dark:bg-gray-700">
+      <p className="text-2xl font-bold dark:text-white">Sign In to your Account</p>
       <form
-        className="w-1/3 flex flex-col justify-center items-center mt-8"
         onSubmit={handleClick}
+        className="flex flex-col items-center justify-center gap-7 p-4 w-screen max-w-sm"
       >
-        <div className="w-full h-96 flex flex-col justify-center items-center gap-8 border-orange-400 border-2 rounded-3xl bg-orange-300/35">
-          <p className="text-orange-800 font-bold text-shadow-md text-[20px]">
-            Login
-          </p>
+        <div className="flex flex-col items-start gap-2 w-full">
+          <label className='dark:text-white'>Email</label>
           <input
-            className="border-orange-400 bg-orange-200 border-3 p-2 rounded-3xl w-[18rem] placeholder-orange-900 focus:outline-none"
-            type="email"
-            placeholder="enter email"
-            name="email"
-            onChange={handleChange}
-            required
-          />
-          <input
-            className="border-orange-400 bg-orange-200 border-3 p-2 rounded-3xl w-[18rem] placeholder-orange-900 focus:outline-none"
-            type="password"
-            placeholder="enter password"
-            name="password"
-            onChange={handleChange}
-            required
-          />
-          <button className="border-orange-400/50 border-3 rounded-2xl w-25 h-10 bg-orange-200 text-red-800 hover:bg-orange-400 hover:text-white hover:border-white transition-colors">
-            Login
-          </button>
-        </div>
-
-        <p className="mt-8">
-          Don't have account?{" "}
-          <a className="text-blue-800" href="/register">
-            Register
-          </a>
-        </p>
-      </form>
-
-      <div className="h-[45rem] w-[40rem] flex justify-center items-center p-3">
-        <img
-          className="h-full w-full rounded-3xl"
-          src="/login.jpg"
-          alt="login"
+          className="border-gray-400 border-1 focus:outline-blue-400 focus:outline-2 w-full rounded-md h-8 dark:text-white"
+          onChange={handleChange}
+          type="email"
+          name="email"
+          required
         />
-      </div>
+        </div>
+        <div className="flex flex-col items-start gap-2 w-full">
+          <label className='dark:text-white'>Password</label>
+          <input
+          className="border-gray-400 border-1 focus:outline-blue-400 focus:outline-2 w-full rounded-md h-8 dark:text-white"
+          onChange={handleChange}
+          type="password"
+          name="password"
+          required
+        />
+        </div>
+        <button type="submit" className="rounded-lg w-full py-1.5 bg-blue-600 text-white hover:bg-blue-500 transition-colors">
+          Sign In
+        </button>
+        <p className='dark:text-white'>Don't have account?{" "}<a href="/register" className="text-blue-800 dark:text-blue-400">Sign Up</a></p>
+      </form>
     </div>
   );
 };

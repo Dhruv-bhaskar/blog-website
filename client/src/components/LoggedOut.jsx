@@ -37,11 +37,11 @@ const LoggedOut = () => {
   }
 
   return (
-    <div className="p-2 flex flex-col items-centre w-30 gap-4">
-      <p className="text-lg font-semibold">Hi, {user}</p>
+    <div className="p-2 flex flex-col items-center w-30 gap-4 shadow-md">
+      <p className="text-lg font-semibold text-gray-800 dark:text-gray-200">Hi, {user}</p>
       <button
         onClick={handleLogout}
-        className="cursor-pointer border-gray-700 border-1 w-15 ml-5 rounded-full text-sm py-1.5 pb-2"
+        className="cursor-pointer border border-gray-700 dark:border-gray-300 w-24 rounded-full text-sm py-1.5 px-4 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-zinc-700 transition-colors"
       >
         Logout
       </button>

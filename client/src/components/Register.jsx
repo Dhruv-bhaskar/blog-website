@@ -35,59 +35,47 @@ const Register = () => {
   }
 
   return (
-    <div className="border flex flex-row justify-around items-center w-screen h-screen bg-orange-200">
+     <div className="min-h-screen flex flex-col justify-center items-center gap-4 dark:bg-gray-700">
+      <p className="text-2xl font-bold dark:text-white">Create your Account</p>
       <form
-        className="w-1/3 flex flex-col justify-center items-center mt-8"
         onSubmit={handleClick}
+        className="flex flex-col items-center justify-center gap-7 p-4 w-screen max-w-sm"
       >
-        <div className="w-full h-[28rem] flex flex-col justify-center items-center gap-8 border-blue-400 border-2 rounded-3xl bg-blue-200/30">
-          <p className="text-blue-950 font-bold text-shadow-md text-[20px]">
-            Register
-          </p>
-          <input
-            className="border-blue-400 border-3 p-2 rounded-3xl w-[18rem] placeholder-blue-900 focus:outline-none"
-            type="text"
-            placeholder="enter username"
-            name="username"
-            onChange={handleChange}
-            required
-          />
-          <input
-            className="border-blue-400 border-3 p-2 rounded-3xl w-[18rem] placeholder-blue-900 focus:outline-none"
-            type="email"
-            placeholder="enter email"
-            name="email"
-            onChange={handleChange}
-            required
-          />
-          <input
-            className="border-blue-400 border-3 p-2 rounded-3xl w-[18rem] placeholder-blue-900 focus:outline-none"
-            type="password"
-            placeholder="enter password"
-            name="password"
-            onChange={handleChange}
-            required
-          />
-          <button className="border-blue-400/50 border-3 rounded-2xl w-25 h-10 bg-blue-200 text-violet-800 hover:bg-blue-500 hover:border-white hover:text-white transition-colors">
-            Register
-          </button>
-        </div>
-
-        <p className="mt-8">
-          Alredy have account?{" "}
-          <a className="text-blue-800" href="/login">
-            Login
-          </a>
-        </p>
-      </form>
-
-      <div className="h-[45rem] w-[40rem] flex justify-center items-center p-3">
-        <img
-          className="h-full w-full rounded-3xl"
-          src="/register.jpg"
-          alt="register"
+        <div className="flex flex-col items-start gap-2 w-full">
+          <label className="dark:text-white">Username</label>
+        <input
+          className="border-gray-400 border-1 focus:outline-blue-400 focus:outline-2 w-full rounded-md h-8 dark:text-white"
+          onChange={handleChange}
+          type="text"
+          name="username"
+          required
         />
-      </div>
+        </div>
+        <div className="flex flex-col items-start gap-2 w-full">
+          <label className="dark:text-white">Email</label>
+          <input
+          className="border-gray-400 border-1 focus:outline-blue-400 focus:outline-2 w-full rounded-md h-8 dark:text-white"
+          onChange={handleChange}
+          type="email"
+          name="email"
+          required
+        />
+        </div>
+        <div className="flex flex-col items-start gap-2 w-full">
+          <label className="dark:text-white">Password</label>
+          <input
+          className="border-gray-400 border-1 focus:outline-blue-400 focus:outline-2 w-full rounded-md h-8 dark:text-white"
+          onChange={handleChange}
+          type="password"
+          name="password"
+          required
+        />
+        </div>
+        <button type="submit" className="rounded-lg w-full py-1.5 bg-blue-600 text-white hover:bg-blue-500 transition-colors">
+          Sign Up
+        </button>
+        <p className='dark:text-white'>Already have account?{" "}<a href="/login" className="text-blue-800 dark:text-blue-400">Sign In</a></p>
+      </form>
     </div>
   );
 };

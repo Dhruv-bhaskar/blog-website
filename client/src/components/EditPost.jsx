@@ -47,8 +47,8 @@ const EditPost = () => {
   };
 
   return (
-    <div className="flex flex-col items-center min-h-screen w-full p-2 bg-blue-50">
-      <nav className="border-white border-2 rounded-xl w-full h-20 flex justify-between items-center bg-zinc-400 pl-2 pr-2 mr-2">
+    <div className="flex flex-col items-center min-h-screen w-full p-2 bg-blue-50 dark:bg-zinc-900">
+      <nav className="rounded-xl w-full h-20 flex justify-between items-center bg-zinc-400 pl-2 pr-2 mr-2 dark:bg-zinc-800">
         <div>
           <Link to={"/loggedin"}>
             <img
@@ -60,7 +60,7 @@ const EditPost = () => {
         </div>
         <div className="flex items-center justify-between w-45">
           <Link to={"/allpost"}>
-            <button className="border-zinc-600 border-2 rounded-3xl p-2 cursor-pointer text-black bg-zinc-100 hover:bg-zinc-600/50 hover:border-white hover:text-white transition-colors">
+            <button className="border-zinc-600 border-2 rounded-3xl p-2 cursor-pointer text-black bg-zinc-100 hover:bg-zinc-600/50 hover:border-white hover:text-white transition-colors dark:bg-zinc-700 dark:text-white dark:border-zinc-500 dark:hover:bg-zinc-600">
               Dashboard
             </button>
           </Link>
@@ -73,7 +73,7 @@ const EditPost = () => {
             />
 
             {showDropdown && (
-              <div className="text-center flex justify-center absolute right-0 top-full mt-2 w-[10rem] bg-white/30 rounded-2xl shadow-md z-50">
+              <div className="text-center flex justify-center absolute right-0 top-full mt-2 w-[10rem] bg-white/30 rounded-2xl shadow-md z-50 dark:bg-zinc-700">
                 <LoggedOut />
               </div>
             )}
@@ -81,7 +81,7 @@ const EditPost = () => {
         </div>
       </nav>
 
-      <h2 className="text-2xl text-blue-700/60 mt-8 border-b border-blue-700 text-shadow-md rounded-lg pb-2">
+      <h2 className="text-2xl text-blue-700/60 mt-8 border-b border-blue-700 text-shadow-md rounded-lg pb-2 dark:text-blue-300 dark:border-blue-300">
         Edit Blog
       </h2>
 
@@ -90,21 +90,21 @@ const EditPost = () => {
         onSubmit={handleSubmit}
       >
         <input
-          className="bg-stone-50 border-blue-200 border-3 rounded-2xl p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="bg-stone-50 border-blue-200 border-3 rounded-2xl p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-zinc-800 dark:text-white dark:placeholder-gray-400 dark:border-blue-400"
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
         />
         <textarea
-          className="bg-stone-50 border-blue-200 border-3 w-full rounded-2xl p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="bg-stone-50 border-blue-200 border-3 w-full rounded-2xl p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-zinc-800 dark:text-white dark:placeholder-gray-400 dark:border-blue-400"
           rows={15}
           value={content}
           onChange={(e) => setContent(e.target.value)}
         ></textarea>
         <button
           type="submit"
-          className="bg-stone-50 border-blue-300 border-3 rounded-full p-2 text-sm text-blue-800 font-semibold hover:bg-blue-600 hover:text-white transition-colors"
+          className="bg-stone-50 border-blue-300 border-3 rounded-full p-2 text-sm text-blue-800 font-semibold hover:bg-blue-600 hover:text-white transition-colors dark:bg-zinc-700 dark:border-blue-400 dark:text-blue-300 dark:hover:bg-blue-500 dark:hover:text-black"
         >
           Update
         </button>
