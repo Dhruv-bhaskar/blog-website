@@ -81,9 +81,9 @@ const AllPosts = () => {
 
       <div className="grid grid-cols-4 gap-6 min-h-dvh p-5 mt-5">
         {isLoading ? (
-          <div className="flex flex-col gap-2 w-fulljustify-center items-center col-span-full mt-[8rem]">
+          <div className="flex flex-col gap-2 w-full justify-center items-center col-span-full mt-[8rem]">
             <img
-              src="weblogo.png"
+              src="/weblogo.png"
               alt="logo"
               className="h-16 rounded-full animate-bounce"
             />
