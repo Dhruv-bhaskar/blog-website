@@ -10,6 +10,7 @@ const EditPost = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -20,7 +21,8 @@ const EditPost = () => {
         setTitle(res.data.title);
         setContent(res.data.content);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(setIsLoading(false))
   }, [id]);
 
   async function handleSubmit(e) {
@@ -85,7 +87,19 @@ const EditPost = () => {
         Edit Blog
       </h2>
 
-      <form
+      {isLoading ? (
+        <div className="flex flex-col gap-2 w-fulljustify-center items-center col-span-full mt-[8rem]">
+            <img
+              src="weblogo.png"
+              alt="logo"
+              className="h-16 rounded-full animate-bounce"
+            />
+            <p className="text-xl text-gray-600 text-center dark:text-white">
+              Loading..
+            </p>
+          </div>
+      ):(
+        <form
         className="flex flex-col items-center gap-6 mt-8 p-3 w-full max-w-5xl"
         onSubmit={handleSubmit}
       >
@@ -109,6 +123,7 @@ const EditPost = () => {
           Update
         </button>
       </form>
+      )}
     </div>
   );
 };

@@ -37,7 +37,7 @@ const CreatePost = () => {
   };
 
   return (
-    <div className="flex flex-col items-center bg-gray-100 h-screen w-screen p-1 px-4 dark:bg-zinc-900">
+    <div className="flex flex-col items-center bg-gray-100 h-screen w-screen p-1 px-4 dark:bg-zinc-900 transition-colors duration-300">
       <nav className="rounded-xl w-full h-20 flex justify-between items-center bg-zinc-400 px-4 dark:bg-zinc-800">
         <div>
           <Link to={"/loggedin"}>

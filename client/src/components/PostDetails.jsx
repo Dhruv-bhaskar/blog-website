@@ -8,6 +8,7 @@ import LoggedOut from "./LoggedOut";
 const PostDetails = () => {
   const [post, setPost] = useState("null");
   const [showDropdown, setShowDropdown] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -15,7 +16,8 @@ const PostDetails = () => {
     axios
       .get(`${import.meta.env.VITE_API_URL}/post/${id}`)
       .then((res) => setPost(res.data))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(setIsLoading(false))
   }, [id]);
 
   async function handleDelete() {
@@ -41,8 +43,8 @@ const PostDetails = () => {
   if (!post) return <div>LOADING...</div>;
 
   return (
-    <div className="flex flex-col items-center min-h-screen w-full p-2 bg-stone-50">
-      <nav className="border-white border-2 rounded-xl w-full h-20 flex justify-between items-center bg-zinc-400 pl-2 pr-2 mr-2">
+    <div className="flex flex-col items-center min-h-screen w-full p-2 bg-stone-50 dark:bg-zinc-900 transition-colors duration-300">
+      <nav className="rounded-xl w-full h-20 flex justify-between items-center bg-zinc-400 pl-2 pr-2 mr-2 dark:bg-zinc-800">
         <div>
           <Link to={"/loggedin"}>
             <img
@@ -54,7 +56,7 @@ const PostDetails = () => {
         </div>
         <div className="flex items-center justify-between w-45">
           <Link to={"/allpost"}>
-            <button className="border-zinc-600 border-2 rounded-3xl p-2 cursor-pointer text-black bg-zinc-100 hover:bg-zinc-600/50 hover:border-white hover:text-white transition-colors">
+            <button className="border-zinc-600 border-2 rounded-3xl p-2 cursor-pointer text-black bg-zinc-100 hover:bg-zinc-600/50 hover:border-white hover:text-white transition-colors dark:bg-zinc-700 dark:text-white dark:border-zinc-500 dark:hover:bg-zinc-600">
               Dashboard
             </button>
           </Link>
@@ -67,7 +69,7 @@ const PostDetails = () => {
             />
 
             {showDropdown && (
-              <div className="text-center flex justify-center absolute right-0 top-full mt-2 w-[10rem] bg-white/30 rounded-2xl shadow-md z-50">
+              <div className="text-center flex justify-center absolute right-0 top-full mt-2 w-[10rem] bg-white/30 rounded-2xl shadow-md z-50 dark:bg-zinc-700">
                 <LoggedOut />
               </div>
             )}
@@ -75,12 +77,24 @@ const PostDetails = () => {
         </div>
       </nav>
 
-      <div className="flex flex-col gap-2 w-full">
+      {isLoading ? (
+        <div className="flex flex-col gap-2 w-fulljustify-center items-center col-span-full mt-[8rem]">
+            <img
+              src="weblogo.png"
+              alt="logo"
+              className="h-16 rounded-full animate-bounce"
+            />
+            <p className="text-xl text-gray-600 text-center dark:text-white">
+              Loading..
+            </p>
+          </div>
+      ):(
+        <div className="flex flex-col gap-2 w-full">
         <div className="pl-4 pr-4 flex items-center justify-between h-[7rem] w-full mt-8">
-          <h1 className="border-b rounded-md drop-shadow-sm drop-shadow-black p-4 text-4xl">
+          <h1 className="ml-4 border-b rounded-md drop-shadow-sm drop-shadow-black p-4 text-4xl dark:text-white">
             {post.title}
           </h1>
-          <div className="flex items-center justify-around h-full w-[10rem]">
+          <div className="flex items-center justify-around h-full w-[10rem] mr-7">
             <Link
               to={`/edit/${post._id}`}
               className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-full transition-colors text-sm font-semibold"
@@ -96,10 +110,11 @@ const PostDetails = () => {
           </div>
         </div>
 
-        <div className="w-[95%] mx-auto text-gray-800 leading-relaxed text-lg">
-          <p>{post.content}</p>
+        <div className="w-[95%] mx-auto text-gray-800 leading-relaxed text-lg dark:text-gray-200">
+          <p className="whitespace-pre-wrap">{post.content}</p>
         </div>
       </div>
+      )}
     </div>
   );
 };
