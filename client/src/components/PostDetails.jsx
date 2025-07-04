@@ -81,7 +81,7 @@ const PostDetails = () => {
             />
 
             {showDropdown && (
-              <div className="text-center flex justify-center absolute right-0 top-full mt-2 w-[10rem] bg-white/30 rounded-2xl shadow-md z-50 dark:bg-zinc-700">
+              <div className="text-center flex justify-center absolute right-0 top-full mt-2 w-[10rem] bg-white/80 rounded-2xl shadow-md z-50 dark:bg-zinc-700">
                 <LoggedOut />
               </div>
             )}
@@ -91,7 +91,7 @@ const PostDetails = () => {
 
       <div className="flex flex-col gap-2 w-full">
         <div className="pl-4 pr-4 flex items-center justify-between h-[7rem] w-full mt-8">
-          <h1 className="ml-4 border-b rounded-md drop-shadow-sm drop-shadow-black p-4 text-4xl dark:text-white">
+          <h1 className="ml-4 border-b rounded-md p-4 text-4xl font-semibold dark:text-white">
             {post.title}
           </h1>
           <div className="flex items-center justify-around h-full w-[10rem] mr-7">

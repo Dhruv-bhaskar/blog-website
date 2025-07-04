@@ -50,7 +50,7 @@ const AllPosts = () => {
             />
           </Link>
         </div>
-        <div className="flex items-center justify-between w-60 border">
+        <div className="flex items-center justify-between w-35 md:w-[40]">
           <Link to={"/create"}>
             <button className="border-zinc-600 border-2 rounded-3xl p-2 cursor-pointer text-black bg-zinc-100 hover:bg-zinc-600/50 hover:border-white hover:text-white transition-colors dark:bg-zinc-700 dark:text-white dark:border-zinc-500 dark:hover:bg-zinc-600">
               Create
@@ -65,7 +65,7 @@ const AllPosts = () => {
             />
 
             {showDropdown && (
-              <div className="text-center flex justify-center absolute right-0 top-full mt-2 w-[10rem] bg-white/30 rounded-2xl shadow-md z-50">
+              <div className="text-center flex justify-center absolute right-0 top-full mt-3 w-[10rem] h-[6.5rem] bg-white/30 rounded-2xl shadow-md z-50">
                 <LoggedOut />
               </div>
             )}
@@ -79,7 +79,7 @@ const AllPosts = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-4 gap-6 min-h-dvh p-5 mt-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 min-h-dvh p-5 mt-5">
         {isLoading ? (
           <div className="flex flex-col gap-2 w-full items-center col-span-full mt-[8rem]">
             <img
@@ -96,8 +96,8 @@ const AllPosts = () => {
             <Postcard key={post._id} post={post} onDelete={handleDeletePost} />
           ))
         ) : (
-          <p className="text-xl text-gray-600 col-span-full text-center">
-            Start Creating..
+          <p className="text-3xl text-black my-[10rem] col-span-full text-center dark:text-white animate-bounce">
+            Start Creating 😊...
           </p>
         )}
       </div>

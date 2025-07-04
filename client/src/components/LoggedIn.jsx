@@ -6,23 +6,21 @@ const LoggedIn = () => {
     <div className="flex flex-col items-center w-full min-h-screen bg-[url('/pencil.jpg')] bg-cover bg-center">
       <nav className="w-full max-w-7xl mx-auto rounded-xl mt-5 p-4 flex justify-between items-center bg-black/50 sticky top-5 z-50 h-20">
         <div>
-          <Link to="/">
-            <img
-              className="h-16 w-auto rounded-full"
-              src="/weblogo.png"
-              alt="blog-logo"
-            />
-          </Link>
+          <img
+            className="h-16 w-auto rounded-full"
+            src="/weblogo.png"
+            alt="blog-logo"
+          />
         </div>
-       <div className="flex items-center justify-between w-50">
-        <Link
+        <div className="flex items-center justify-between w-50">
+          <Link
             to={"/allpost"}
             className="p-2 px-4 border-2 border-white rounded-3xl bg-orange-200 text-orange-700 font-semibold text-base hover:bg-orange-300 transition-colors"
           >
             Dashboard
           </Link>
-        <img className="h-16 rounded-full" src="/user.png" alt="user" />
-       </div>
+          <img className="h-16 rounded-full" src="/user.png" alt="user" />
+        </div>
       </nav>
 
       <div className="pt-28 flex flex-col items-center gap-20 w-full flex-grow px-4">
@@ -77,7 +75,9 @@ const LoggedIn = () => {
         </div>
 
         <div className="rounded-3xl flex flex-col gap-7 items-center p-4 pt-15 w-full max-w-7xl mx-auto h-[30rem] bg-[url('/worldmap.jpg')] bg-cover bg-center">
-          <p className="text-6xl text-stone-800 font-semibold text-shadow-white text-shadow-md text-center">Grow with People</p>
+          <p className="text-6xl text-stone-800 font-semibold text-shadow-white text-shadow-md text-center">
+            Grow with People
+          </p>
           <p className="text-2xl text-white font-bold font-serif text-shadow-black text-shadow-sm text-center">
             Many people are growing with us
           </p>

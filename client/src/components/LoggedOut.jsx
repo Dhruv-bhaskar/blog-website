@@ -7,6 +7,7 @@ import { useEffect } from "react";
 const LoggedOut = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -26,6 +27,7 @@ const LoggedOut = () => {
   }, []);
 
   async function handleLogout() {
+    setIsLoading(true)
     try {
       await axios.get(`${import.meta.env.VITE_API_URL}/user/logout`, {
         withCredentials: true,
@@ -33,11 +35,27 @@ const LoggedOut = () => {
       navigate("/");
     } catch (err) {
       toast.error("Error in logout");
+    }finally{
+      setIsLoading(false)
     }
   }
 
+  if (isLoading)
+    return (
+      <div className="flex flex-col gap-2 w-full h-[5rem] justify-center items-center dark:bg-zinc-900">
+        <img
+          src="/weblogo.png"
+          alt="logo"
+          className="h-12 rounded-full animate-bounce"
+        />
+        <p className="text-lg text-gray-600 text-center dark:text-white">
+          Logging Out..
+        </p>
+      </div>
+    );
+
   return (
-    <div className="p-2 flex flex-col items-center w-30 gap-4 shadow-md">
+    <div className="p-2 flex flex-col items-center w-30 gap-4">
       <p className="text-lg font-semibold text-gray-800 dark:text-gray-200">Hi, {user}</p>
       <button
         onClick={handleLogout}

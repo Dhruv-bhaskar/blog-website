@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 
 const Register = () => {
   const [data, setData] = useState({ username: "", email: "", password: "" });
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   function handleChange(e) {
@@ -13,6 +14,7 @@ const Register = () => {
   }
 
   async function handleClick(e) {
+    setIsLoading(true)
     e.preventDefault();
 
     try {
@@ -31,8 +33,24 @@ const Register = () => {
         alert("Registration failed");
       }
       console.error(err);
+    }finally{
+      setIsLoading(false)
     }
   }
+
+  if (isLoading)
+    return (
+      <div className="flex flex-col gap-2 w-full h-screen justify-center items-center dark:bg-zinc-900">
+        <img
+          src="/weblogo.png"
+          alt="logo"
+          className="h-16 rounded-full animate-bounce"
+        />
+        <p className="text-xl text-gray-600 text-center dark:text-white">
+          Loading..
+        </p>
+      </div>
+    );
 
   return (
      <div className="min-h-screen flex flex-col justify-center items-center gap-4 dark:bg-gray-700">

@@ -63,8 +63,8 @@ const EditPost = () => {
     );
 
   return (
-    <div className="flex flex-col items-center min-h-screen w-full p-2 bg-blue-50 dark:bg-zinc-900 transition-colors duration-300">
-      <nav className="rounded-xl w-full h-20 flex justify-between items-center bg-zinc-400 pl-2 pr-2 mr-2 dark:bg-zinc-800">
+    <div className="flex flex-col items-center min-h-screen w-full bg-blue-50 dark:bg-zinc-900 transition-colors duration-300">
+      <nav className="rounded-xl w-full h-20 flex justify-between items-center bg-zinc-400 pl-4 pr-2 mr-2 dark:bg-zinc-800">
         <div>
           <Link to={"/loggedin"}>
             <img
@@ -120,7 +120,7 @@ const EditPost = () => {
         ></textarea>
         <button
           type="submit"
-          className="bg-stone-50 border-blue-300 border-3 rounded-full p-2 text-sm text-blue-800 font-semibold hover:bg-blue-600 hover:text-white transition-colors dark:bg-zinc-700 dark:border-blue-400 dark:text-blue-300 dark:hover:bg-blue-500 dark:hover:text-black"
+          className="w-full bg-stone-50 border-blue-300 border-3 rounded-full p-2 text-lg text-blue-800 font-semibold hover:bg-blue-600 hover:text-white transition-colors dark:bg-zinc-700 dark:border-blue-400 dark:text-blue-300 dark:hover:bg-blue-500 dark:hover:text-black"
         >
           Update
         </button>

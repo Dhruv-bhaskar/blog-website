@@ -25,7 +25,7 @@ const Postcard = ({ post, onDelete }) => {
   }
 
   return (
-    <div className="border-stone-600 border-[3px] p-4 rounded-xl flex flex-col justify-between items-center w-[20rem] h-[28rem] overflow-hidden shadow-lg transition-shadow duration-300 hover:shadow-xl bg-stone-50 dark:bg-zinc-900 dark:border-zinc-700 dark:shadow-white/60">
+    <div className="border-stone-600 border-[3px] p-4 rounded-xl flex flex-col justify-between items-center w-[20rem] h-[28rem] overflow-hidden shadow-black/40 shadow-lg transition-shadow duration-300 hover:shadow-xl bg-stone-50 dark:bg-zinc-900 dark:border-zinc-700 dark:shadow-white/60">
       <div className="border-b border-gray-300 rounded-lg w-full flex flex-col justify-center items-center gap-2 pb-3 mb-2 dark:border-zinc-700">
         <p className="text-xl font-semibold text-gray-700 dark:text-gray-300">Title</p>
         <h2 className="text-2xl font-bold text-gray-800 dark:text-white">{post.title.slice(0, 40)}...</h2>
