@@ -8,6 +8,7 @@ import LoggedOut from "./LoggedOut";
 const PostDetails = () => {
   const [post, setPost] = useState("null");
   const [showDropdown, setShowDropdown] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -16,6 +17,7 @@ const PostDetails = () => {
       .get(`${import.meta.env.VITE_API_URL}/post/${id}`)
       .then((res) => setPost(res.data))
       .catch((err) => console.log(err))
+      .finally(() => setIsLoading(false))
   }, [id]);
 
   async function handleDelete() {
@@ -38,9 +40,9 @@ const PostDetails = () => {
     setShowDropdown((prev) => !prev);
   };
 
-  if (!post)
+  if (isLoading)
     return (
-      <div className="flex flex-col gap-2 w-full h-screen justify-center items-center">
+      <div className="flex flex-col gap-2 w-full h-screen justify-center items-center dark:bg-zinc-900">
         <img
           src="/weblogo.png"
           alt="logo"

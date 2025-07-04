@@ -10,6 +10,7 @@ const EditPost = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -21,6 +22,7 @@ const EditPost = () => {
         setContent(res.data.content);
       })
       .catch((err) => console.log(err))
+      .finally(() => setIsLoading(false))
   }, [id]);
 
   async function handleSubmit(e) {
@@ -45,9 +47,23 @@ const EditPost = () => {
   const handleClick = () => {
     setShowDropdown((prev) => !prev);
   };
-  
+ 
+  if (isLoading)
+    return (
+      <div className="flex flex-col gap-2 w-full h-screen justify-center items-center dark:bg-zinc-900">
+        <img
+          src="/weblogo.png"
+          alt="logo"
+          className="h-16 rounded-full animate-bounce"
+        />
+        <p className="text-xl text-gray-600 text-center dark:text-white">
+          Loading..
+        </p>
+      </div>
+    );
+
   return (
-    <div className="flex flex-col items-center min-h-screen w-full p-2 bg-blue-50 dark:bg-zinc-900">
+    <div className="flex flex-col items-center min-h-screen w-full p-2 bg-blue-50 dark:bg-zinc-900 transition-colors duration-300">
       <nav className="rounded-xl w-full h-20 flex justify-between items-center bg-zinc-400 pl-2 pr-2 mr-2 dark:bg-zinc-800">
         <div>
           <Link to={"/loggedin"}>

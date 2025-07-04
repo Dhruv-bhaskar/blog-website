@@ -21,7 +21,7 @@ const AllPosts = () => {
       } catch (err) {
         console.error("Error fetching posts:", err);
       } finally {
-        setIsLoading(false);
+        setIsLoading(false)
       }
     };
 
@@ -50,7 +50,7 @@ const AllPosts = () => {
             />
           </Link>
         </div>
-        <div className="flex items-center justify-between w-40">
+        <div className="flex items-center justify-between w-60 border">
           <Link to={"/create"}>
             <button className="border-zinc-600 border-2 rounded-3xl p-2 cursor-pointer text-black bg-zinc-100 hover:bg-zinc-600/50 hover:border-white hover:text-white transition-colors dark:bg-zinc-700 dark:text-white dark:border-zinc-500 dark:hover:bg-zinc-600">
               Create
