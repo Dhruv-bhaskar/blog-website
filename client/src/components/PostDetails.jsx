@@ -90,11 +90,11 @@ const PostDetails = () => {
       </nav>
 
       <div className="flex flex-col gap-2 w-full">
-        <div className="border pl-4 pr-4 flex flex-col sm:flex-row items-center justify-between min-h-[9rem] sm:h-[7rem] w-full mt-8">
+        <div className="pl-4 pr-4 flex flex-col sm:flex-row items-center justify-between min-h-[9rem] sm:h-[7rem] w-full mt-8">
           <h1 className="ml-4 border-b rounded-md p-4 text-md sm:text-3xl lg:text-4xl font-semibold dark:text-white">
             {post.title}
           </h1>
-          <div className="flex items-center justify-around border h-full w-[10rem] sm:mr-7">
+          <div className="flex items-center justify-around h-full w-[10rem] sm:mr-7">
             <Link
               to={`/edit/${post._id}`}
               className="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-2 rounded-full transition-colors text-sm font-semibold"
@@ -110,7 +110,7 @@ const PostDetails = () => {
           </div>
         </div>
 
-        <div className="w-[95%] mx-auto text-gray-800 leading-relaxed text-lg dark:text-gray-200">
+        <div className="w-[95%] mt-3 mx-auto text-gray-800 leading-relaxed text-lg dark:text-gray-200">
           <p className="whitespace-pre-wrap">{post.content}</p>
         </div>
       </div>
