@@ -46,7 +46,7 @@ const AllPosts = () => {
             <img
               className="h-16 rounded-full"
               src="/weblogo.png"
-              alt="blog-logo"
+              alt="weblogo"
             />
           </Link>
         </div>
