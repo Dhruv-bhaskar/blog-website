@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="flex flex-col items-center w-full min-h-screen bg-[url('/pencil.jpg')] bg-cover bg-center">
-      <nav className="w-full max-w-7xl mx-auto rounded-xl mt-5 p-4 flex justify-between items-center bg-black/50 sticky top-5 z-50 h-20">
+    <div className="flex flex-col items-center w-full min-h-screen bg-orange-200">
+      <nav className="w-full max-w-7xl mx-auto rounded-xl mt-5 p-4 flex justify-between items-center bg-black/50 sticky top-0 z-50 h-20">
         <div>
           <Link to="/">
             <img
