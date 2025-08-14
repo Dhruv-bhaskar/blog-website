@@ -32,11 +32,15 @@ const Home = () => {
 
       <div className="pt-28 flex flex-col items-center gap-20 w-full flex-grow px-4">
         <div className="p-4 flex flex-col gap-5 justify-center items-center h-96 w-full max-w-4xl mx-auto text-center">
-          <p className="text-7xl font-semibold text-amber-600/75">
+          <p className="text-[2rem] sm:text-[3rem] md:text-[4rem] font-semibold text-amber-600/75">
             WELCOME TO BLOGGISH
           </p>
-          <p className="text-gray-700/70 text-5xl">Your Blog Partner</p>
-          <p className="text-gray-700/70 text-3xl">Create and Grow</p>
+          <p className="text-gray-700/70 text-[2rem] sm:text-4xl md:text-[2.7rem] font-semibold">
+            Your Blog Partner
+          </p>
+          <p className="text-gray-700/70 text-[1.5rem] sm:text-2xl md:text-[2rem] font-bold">
+            Create and Grow
+          </p>
           <Link
             to={"/register"}
             className="bg-amber-200/50 border-amber-600 border-4 rounded-3xl p-2 px-8 text-amber-700 text-lg font-semibold hover:bg-amber-100 hover:text-gray-700 transition-colors"
@@ -47,7 +51,7 @@ const Home = () => {
 
         <div className="bg-white/30 rounded-3xl flex flex-col md:flex-row justify-center items-center w-full max-w-7xl mx-auto p-6 shadow-xl">
           <div className="p-4 flex flex-col gap-5 justify-center flex-1 text-center md:text-left">
-            <p className="text-5xl text-blue-700/80 font-serif">
+            <p className="text-3xl text-blue-700/80 font-serif">
               Create and Manage your Blogs
             </p>
             <p className="text-3xl pl-0 md:pl-6 text-blue-900 font-mono">
@@ -65,7 +69,7 @@ const Home = () => {
 
         <div className="bg-white/30 rounded-3xl flex flex-col md:flex-row-reverse justify-center items-center w-full max-w-7xl mx-auto p-6 shadow-xl">
           <div className="p-4 flex flex-col justify-center gap-5 flex-1 text-center md:text-right">
-            <p className="text-5xl text-amber-700 font-serif">
+            <p className="text-3xl text-amber-700 font-serif">
               Project your great ideas and learnings in Blogs
             </p>
             <p className="text-3xl pl-0 md:pl-6 text-amber-800 font-mono">
@@ -81,8 +85,10 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="rounded-3xl flex flex-col gap-7 items-center p-4 pt-15 w-full max-w-7xl mx-auto h-[30rem] bg-[url('/worldmap.jpg')] bg-cover bg-center">
-          <p className="text-6xl text-stone-800 font-semibold text-shadow-white text-shadow-md text-center">Grow with People</p>
+        <div className="rounded-3xl flex flex-col gap-7 items-center justify-center p-4 pt-15 w-full max-w-7xl mx-auto h-[30rem] bg-[url('/worldmap.jpg')] bg-cover bg-center">
+          <p className="text-[2.3rem] sm:text-5xl md:text-6xl text-stone-800 font-semibold text-shadow-white text-shadow-md text-center">
+            Grow with People
+          </p>
           <p className="text-2xl text-white font-bold font-serif text-shadow-black text-shadow-sm text-center">
             Many people are growing with us
           </p>
@@ -108,20 +114,32 @@ const Home = () => {
             </div>
             <div className="flex flex-col gap-3 mt-5 pl-0 items-center md:items-start">
               <div className="flex gap-3 items-center">
-                <img
-                  className="h-7 w-7 rounded-full"
-                  src="/linkedin.svg"
-                  alt="LinkedIn"
-                />
-                <p>Dhruv Kumar</p>
+                <a
+                  className="flex items-center gap-2"
+                  href="https://www.linkedin.com/in/dhruv-kumar-4206b0274/"
+                  target="_blank"
+                >
+                  <img
+                    className="h-7 w-7 rounded-full"
+                    src="/linkedin.svg"
+                    alt="LinkedIn"
+                  />
+                  <p>Dhruv Kumar</p>
+                </a>
               </div>
               <div className="flex gap-3 items-center">
-                <img
-                  className="h-7 w-7 rounded-full"
-                  src="/github.svg"
-                  alt="GitHub"
-                />
-                <p>Dhruv-bhaskar</p>
+                <a
+                  className="flex items-center gap-2"
+                  href="https://github.com/Dhruv-bhaskar"
+                  target="_blank"
+                >
+                  <img
+                    className="h-7 w-7 rounded-full"
+                    src="/github.svg"
+                    alt="GitHub"
+                  />
+                  <p>Dhruv-bhaskar</p>
+                </a>
               </div>
             </div>
             <p className="mt-5 text-sm">
