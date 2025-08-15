@@ -40,7 +40,7 @@ const Register = () => {
 
   if (isLoading)
     return (
-      <div className="flex flex-col gap-2 w-full h-screen justify-center items-center dark:bg-zinc-900">
+      <div className="flex flex-col gap-2 w-full h-screen justify-center items-center dark:bg-black/87">
         <img
           src="/weblogo.png"
           alt="logo"
@@ -53,7 +53,7 @@ const Register = () => {
     );
 
   return (
-     <div className="min-h-screen flex flex-col justify-center items-center gap-4 dark:bg-gray-700">
+     <div className="min-h-screen flex flex-col justify-center items-center gap-4 dark:bg-black/87">
       <p className="text-2xl font-bold dark:text-white">Create your Account</p>
       <form
         onSubmit={handleClick}

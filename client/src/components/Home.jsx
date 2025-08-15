@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div className="flex flex-col items-center w-full min-h-screen bg-orange-200">
-      <nav className="w-full max-w-7xl mx-auto rounded-xl mt-5 p-4 flex justify-between items-center bg-black/50 sticky top-0 z-50 h-20">
+      <nav className="w-full max-w-7xl mx-auto rounded-xl mt-5 p-4 flex justify-between items-center bg-black/50 sticky top-5 z-50 h-20">
         <div>
           <Link to="/">
             <img
@@ -51,7 +51,7 @@ const Home = () => {
 
         <div className="bg-white/30 rounded-3xl flex flex-col md:flex-row justify-center items-center w-full max-w-7xl mx-auto p-6 shadow-xl">
           <div className="p-4 flex flex-col gap-5 justify-center flex-1 text-center md:text-left">
-            <p className="text-3xl text-blue-700/80 font-serif">
+            <p className="text-3xl sm:text-4xl text-blue-700/80 font-serif">
               Create and Manage your Blogs
             </p>
             <p className="text-3xl pl-0 md:pl-6 text-blue-900 font-mono">
@@ -69,7 +69,7 @@ const Home = () => {
 
         <div className="bg-white/30 rounded-3xl flex flex-col md:flex-row-reverse justify-center items-center w-full max-w-7xl mx-auto p-6 shadow-xl">
           <div className="p-4 flex flex-col justify-center gap-5 flex-1 text-center md:text-right">
-            <p className="text-3xl text-amber-700 font-serif">
+            <p className="text-3xl sm:text-4xl text-amber-700 font-serif">
               Project your great ideas and learnings in Blogs
             </p>
             <p className="text-3xl pl-0 md:pl-6 text-amber-800 font-mono">
@@ -100,7 +100,7 @@ const Home = () => {
           </Link>
         </div>
 
-        <footer className="text-gray-200 bg-black/80 w-full py-8 flex flex-col md:flex-row justify-around items-center px-4 rounded-t-2xl">
+        <footer className="text-gray-200 bg-black/80 w-full py-8 flex flex-col md:flex-row justify-around items-center px-4 rounded-t-xl">
           <div className="flex flex-col gap-5 mb-8 md:mb-0 md:w-1/3 text-center md:text-left">
             <div className="flex gap-3 items-center justify-center md:justify-start">
               <img
