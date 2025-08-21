@@ -1,162 +1,101 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Home = () => {
-  return (
-    <div className="flex flex-col items-center w-full min-h-screen bg-orange-200">
-      <nav className="w-full max-w-7xl mx-auto rounded-xl mt-5 p-4 flex justify-between items-center bg-black/50 sticky top-5 z-50 h-20">
+   return (
+    <div className="min-h-screen bg-white text-black dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-800 dark:text-white flex flex-col">
+      {/* Navbar */}
+      <header className="w-full px-6 py-4 flex justify-between items-center border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md">
+        <div className="flex items-center gap-3">
+          <img src="/weblogo.png" alt="logo" className="h-14 w-15 rounded-full" />
+          <h1 className="text-2xl font-bold">Bloggish</h1>
+        </div>
+        <div className="flex gap-3">
+          <a href="/login" className="px-4 py-2 rounded-xl border border-gray-300 bg-gray-100 text-gray-700 hover:bg-gray-200 transition dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700">Log In</a>
+          <a href="/register" className="px-4 py-2 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition">Get Started</a>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <main className="flex flex-col items-center justify-center gap-4 text-center px-6 py-20 mt-[8rem]">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl md:text-6xl font-extrabold mb-6"
+        >
+          Welcome to Bloggish
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mb-8"
+        >
+          A place to create, grow, and share your ideas with the world.
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1, duration: 0.6 }}
+        >
+          <a href="/register" className="px-6 py-3 rounded-2xl bg-blue-600 text-white text-lg font-semibold hover:bg-blue-700 transition">Start Writing</a>
+        </motion.div>
+      </main>
+
+      {/* Features Section */}
+      <section id="features" className="w-full max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center mt-[5rem]">
         <div>
-          <Link to="/">
-            <img
-              className="h-16 w-auto rounded-full"
-              src="/weblogo.png"
-              alt="blog-logo"
-            />
-          </Link>
-        </div>
-        <div className="flex justify-end items-center gap-4 text-orange-500 text-lg w-auto">
-          <Link
-            to={"/login"}
-            className="p-2 px-4 border-2 border-white rounded-3xl bg-orange-200 text-orange-700 font-semibold text-base hover:bg-orange-300 transition-colors"
-          >
-            Log In
-          </Link>
-          <Link
-            to={"/register"}
-            className="p-2 px-4 border-2 border-white rounded-3xl bg-orange-200 text-orange-700 font-semibold text-base hover:bg-orange-300 transition-colors"
-          >
-            Get Started
-          </Link>
-        </div>
-      </nav>
-
-      <div className="pt-28 flex flex-col items-center gap-20 w-full flex-grow px-4">
-        <div className="p-4 flex flex-col gap-5 justify-center items-center h-96 w-full max-w-4xl mx-auto text-center">
-          <p className="text-[2rem] sm:text-[3rem] md:text-[4rem] font-semibold text-amber-600/75">
-            WELCOME TO BLOGGISH
+          <h3 className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-4">Create and Manage</h3>
+          <p className="text-gray-700 dark:text-gray-300 text-lg mb-6">
+            Easily create, edit, and manage your blog posts with a powerful editor.
           </p>
-          <p className="text-gray-700/70 text-[2rem] sm:text-4xl md:text-[2.7rem] font-semibold">
-            Your Blog Partner
-          </p>
-          <p className="text-gray-700/70 text-[1.5rem] sm:text-2xl md:text-[2rem] font-bold">
-            Create and Grow
-          </p>
-          <Link
-            to={"/register"}
-            className="bg-amber-200/50 border-amber-600 border-4 rounded-3xl p-2 px-8 text-amber-700 text-lg font-semibold hover:bg-amber-100 hover:text-gray-700 transition-colors"
-          >
-            Create
-          </Link>
         </div>
+        <img src="/typing.jpg" alt="create" className="rounded-2xl shadow-lg" />
+      </section>
 
-        <div className="bg-white/30 rounded-3xl flex flex-col md:flex-row justify-center items-center w-full max-w-7xl mx-auto p-6 shadow-xl">
-          <div className="p-4 flex flex-col gap-5 justify-center flex-1 text-center md:text-left">
-            <p className="text-3xl sm:text-4xl text-blue-700/80 font-serif">
-              Create and Manage your Blogs
-            </p>
-            <p className="text-3xl pl-0 md:pl-6 text-blue-900 font-mono">
-              Create Edit and Delete your Blogs
-            </p>
-          </div>
-          <div className="flex-shrink-0 mt-6 md:mt-0 md:ml-12">
-            <img
-              className="h-64 md:h-60 rounded-2xl object-cover"
-              src="/typing.jpg"
-              alt="create"
-            />
-          </div>
-        </div>
-
-        <div className="bg-white/30 rounded-3xl flex flex-col md:flex-row-reverse justify-center items-center w-full max-w-7xl mx-auto p-6 shadow-xl">
-          <div className="p-4 flex flex-col justify-center gap-5 flex-1 text-center md:text-right">
-            <p className="text-3xl sm:text-4xl text-amber-700 font-serif">
-              Project your great ideas and learnings in Blogs
-            </p>
-            <p className="text-3xl pl-0 md:pl-6 text-amber-800 font-mono">
-              Learn Create and Grow
-            </p>
-          </div>
-          <div className="flex-shrink-0 mt-6 md:mt-0 md:mr-12">
-            <img
-              className="h-64 md:h-60 rounded-2xl object-cover"
-              src="/idea.jpg"
-              alt="create"
-            />
-          </div>
-        </div>
-
-        <div className="rounded-3xl flex flex-col gap-7 items-center justify-center p-4 pt-15 w-full max-w-7xl mx-auto h-[30rem] bg-[url('/worldmap.jpg')] bg-cover bg-center">
-          <p className="text-[2.3rem] sm:text-5xl md:text-6xl text-stone-800 font-semibold text-shadow-white text-shadow-md text-center">
-            Grow with People
+      <section className="w-full max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center">
+        <img src="/idea.jpg" alt="idea" className="rounded-2xl shadow-lg order-2 md:order-1" />
+        <div className="order-1 md:order-2">
+          <h3 className="text-4xl font-bold text-amber-600 dark:text-amber-400 mb-4">Share Your Ideas</h3>
+          <p className="text-gray-700 dark:text-gray-300 text-lg mb-6">
+            Inspire others with your unique thoughts, projects, and learnings.
           </p>
-          <p className="text-2xl text-white font-bold font-serif text-shadow-black text-shadow-sm text-center">
-            Many people are growing with us
-          </p>
-          <Link
-            to={"/register"}
-            className="border-green-600 border-4 rounded-3xl mt-7 p-2 px-8 bg-green-200/80 text-green-600 text-lg font-semibold hover:bg-green-300 transition-colors"
-          >
-            Join Us
-          </Link>
         </div>
+      </section>
 
-        <footer className="text-gray-200 bg-black/80 w-full py-8 flex flex-col md:flex-row justify-around items-center px-4 rounded-t-xl">
-          <div className="flex flex-col gap-5 mb-8 md:mb-0 md:w-1/3 text-center md:text-left">
-            <div className="flex gap-3 items-center justify-center md:justify-start">
-              <img
-                className="h-7 w-7 rounded-full"
-                src="/phone.webp"
-                alt="contact"
-              />
-              <p className="text-white border-b-2 border-b-white pb-1">
-                Contact Us
-              </p>
-            </div>
-            <div className="flex flex-col gap-3 mt-5 pl-0 items-center md:items-start">
-              <div className="flex gap-3 items-center">
-                <a
-                  className="flex items-center gap-2"
-                  href="https://www.linkedin.com/in/dhruv-kumar-4206b0274/"
-                  target="_blank"
-                >
-                  <img
-                    className="h-7 w-7 rounded-full"
-                    src="/linkedin.svg"
-                    alt="LinkedIn"
-                  />
-                  <p>Dhruv Kumar</p>
-                </a>
-              </div>
-              <div className="flex gap-3 items-center">
-                <a
-                  className="flex items-center gap-2"
-                  href="https://github.com/Dhruv-bhaskar"
-                  target="_blank"
-                >
-                  <img
-                    className="h-7 w-7 rounded-full"
-                    src="/github.svg"
-                    alt="GitHub"
-                  />
-                  <p>Dhruv-bhaskar</p>
-                </a>
-              </div>
-            </div>
-            <p className="mt-5 text-sm">
-              © {new Date().getFullYear()} - Present Bloggish. All rights
-              reserved.
-            </p>
-          </div>
+      {/* Community Section */}
+      <section id="community" className="w-full max-w-7xl mx-auto px-6 py-20 text-center bg-gray-100 dark:bg-gray-700/30 rounded-3xl">
+        <h3 className="text-4xl font-bold mb-6 text-gray-800 dark:text-white">Grow with People</h3>
+        <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">Join a vibrant community of writers and readers.</p>
+        <a href="/register" className="px-8 py-3 rounded-2xl bg-green-600 text-white text-lg font-semibold hover:bg-green-700 transition">Join Us</a>
+      </section>
 
-          <div className="flex-shrink-0">
-            <img
-              className="h-40 w-40 rounded-full object-cover"
-              src="/weblogo.png"
-              alt="footer-logo"
-            />
-          </div>
-        </footer>
-      </div>
+      {/* Contact Section */}
+      <section id="contact" className=" w-full max-w-7xl mx-auto px-6 py-10 flex flex-col justify-center gap-6 items-center md:flex-row md:pl-[22rem]">
+        <div>
+          <h3 className="text-3xl font-bold text-green-600 dark:text-green-400 mb-4">Contact Us</h3>
+          <ul className="space-y-4 text-gray-700 dark:text-gray-300">
+            <li>
+              <a href="https://www.linkedin.com/in/dhruv-kumar-4206b0274/" target="_blank" className="hover:underline">
+                LinkedIn - Dhruv Kumar
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/Dhruv-bhaskar" target="_blank" className="hover:underline">
+                GitHub - Dhruv-bhaskar
+              </a>
+            </li>
+          </ul>
+        </div>
+        <img src="/weblogo.png" alt="contact logo" className="h-40 w-40 rounded-full mx-auto" />
+      </section>
+
+      {/* Footer */}
+      <footer className="w-full py-6 text-center border-t border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400">
+        © {new Date().getFullYear()} MyBlog. All rights reserved.
+      </footer>
     </div>
   );
 };
