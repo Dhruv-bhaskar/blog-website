@@ -64,7 +64,7 @@ const EditPost = () => {
 
   return (
     <div className="flex flex-col items-center min-h-screen w-full bg-blue-50 dark:bg-zinc-900 transition-colors duration-300">
-      <nav className="rounded-xl w-full h-20 flex justify-between items-center bg-zinc-400 pl-4 pr-2 mr-2 dark:bg-zinc-800">
+      <nav className="rounded-xl w-full h-20 flex justify-between items-center bg-zinc-400/30 dark:bg-zinc-800/30 backdrop-blur-md pl-4 pr-2 mr-2">
         <div>
           <Link to={"/loggedin"}>
             <img

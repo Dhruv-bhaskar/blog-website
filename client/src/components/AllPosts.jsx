@@ -40,7 +40,7 @@ const AllPosts = () => {
 
   return (
     <div className="bg-stone-100 flex flex-col items-center min-h-screen w-full px-4 pt-4 dark:bg-stone-900">
-      <nav className="rounded-xl w-full h-20 flex justify-between items-center bg-zinc-400/50 pl-2 dark:bg-zinc-800">
+      <nav className="rounded-xl w-full h-20 flex justify-between items-center bg-zinc-400/30 pl-2 dark:bg-zinc-800/30 backdrop-blur-md">
         <div>
           <Link to={"/loggedin"}>
             <img
