@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import DropDown from "./DropDown";
 
 const Home = () => {
+  const [dropdown, setDropdown] = useState(false);
+
+  const handleClick = ()=>{
+    setDropdown(prev => !prev)
+  }
+
   return (
     <div className="min-h-screen bg-white text-black dark:bg-gradient-to-b dark:from-gray-900 dark:to-gray-800 dark:text-white flex flex-col">
       <header className="w-full px-6 py-4 flex justify-between items-center border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md">
@@ -10,11 +17,11 @@ const Home = () => {
           <img
             src="/weblogo.png"
             alt="logo"
-            className="h-14 w-15 rounded-full"
+            className="sm:h-14 sm:w-15 w-13 h-12 rounded-full"
           />
-          <h1 className="text-2xl font-bold">Bloggish</h1>
+          <h1 className="text-xl sm:text-2xl font-bold">Bloggish</h1>
         </div>
-        <div className="flex gap-3">
+        <div className="hidden relative sm:flex sm:gap-3">
           <a
             href="/login"
             className="px-4 py-2 rounded-xl border border-gray-300 bg-gray-100 text-gray-700 hover:bg-gray-200 transition dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
@@ -28,9 +35,18 @@ const Home = () => {
             Get Started
           </a>
         </div>
+        <div onClick={handleClick} className="sm:hidden">
+          <img src="/hamburger.png" alt="menu" className="w-8 rounded-md" />
+        </div>
       </header>
 
-      <main className="flex flex-col items-center justify-center gap-4 text-center px-6 py-20 mt-[8rem]">
+      {dropdown && (
+        <div className="relative">
+          <DropDown />
+        </div>
+      )}
+
+      <main className="flex flex-col items-center justify-center gap-4 text-center px-6 py-20 mt-[5rem] sm:mt-[8rem]">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
