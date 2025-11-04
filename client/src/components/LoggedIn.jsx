@@ -68,7 +68,7 @@ const LoggedIn = () => {
           transition={{ delay: 1, duration: 0.6 }}
         >
           <a
-            href="/register"
+            href="/create"
             className="px-6 py-3 rounded-2xl bg-blue-600 text-white text-lg font-semibold hover:bg-blue-700 transition"
           >
             Start Writing

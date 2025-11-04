@@ -24,7 +24,7 @@ const Login = () => {
         { withCredentials: true }
       );
       toast.success("Login successful");
-      navigate("/");
+      navigate("/loggedin");
       console.log(res.data);
     } catch (err) {
       if (err.response?.status === 400) {
